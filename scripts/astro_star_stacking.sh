@@ -27,11 +27,11 @@ cd blackframes
 
 # Convert Canon CR2 Frames to TIFF
 
-echo "......Convert CR2 to sRGB TIFF"
+echo "......Convert CR2 to Linear TIFF"
 
 for file in *.CR2
 do
-	dcraw -T -6 $file
+	dcraw -T -4 $file
 done
 
 echo "......Average Black Frames"
@@ -58,11 +58,11 @@ cd starframes
 
 # Convert Canon CR2 Frames to TIFF
 
-echo "......Convert CR2 to sRGB TIFF and Subtract Black File"
+echo "......Convert CR2 to Linear TIFF and Subtract Black File"
 
 for file in *.CR2
 do
-	dcraw -T -6 $file
+	dcraw -T -4 $file
 	composite -compose minus ${file%.CR2}.tiff blackframe.tiff -depth 16 corr_${file%.CR2}.tiff
 done
 
@@ -75,6 +75,10 @@ align_image_stack -v -a ais $fl
 echo "......Average Corrected Star Frames"
 
 convert ais*.tif -alpha off -evaluate-sequence mean -depth 16 final_stars.tiff
+
+echo "......Convert to sRGB"
+
+convert final_stars.tiff -set colorspace RGB -colorspace sRGB -depth 16 final_stars.tiff
 
 mv final_stars.tiff ../
 
