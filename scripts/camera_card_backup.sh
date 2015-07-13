@@ -29,20 +29,20 @@ INPUT_DIR=$1
 echo -n "......Input Directory: "
 echo $INPUT_DIR
 
-OUTPUT_DIR=~/camera_backup/`TZ='Europe/London' date +%y%m%d%H%M`/
+OUTPUT_DIR=~/Camera_Backup/`TZ='Europe/London' date +%y%m%d%H%M`/
 
 echo -n "......Output Directory: "
 echo $OUTPUT_DIR
 
 mkdir -p $OUTPUT_DIR
-
+cd $INPUT_DIR
 
 #####################
 # COPY              #
 #####################
 
 echo "...Copying"
-rsync -uvh --progress $INPUT_DIR $OUTPUT_DIR
+rsync -vv -u -a --progress $INPUT_DIR $OUTPUT_DIR
 echo "......Copied"
 
 
@@ -50,10 +50,18 @@ echo "......Copied"
 # CHECK             #
 #####################
 
-cd $IMPUT_DIR
+cd $INPUT_DIR
 
-for file in *
-do
-	echo "in: " `md5sum -cb $file` "  out: " `md5sum -cb $OUTPUT_DIR/$file`
+echo "...Checking File"
+for f in * 
+do 
+	[[ -f $f ]] && if [ $(md5sum "$f" | cut -d" " -f1) == $(md5sum $OUTPUT_DIR/"$f" | cut -d" " -f1) ] 
+	then 
+		echo "......" "$f" "OK"
+	else 
+		echo "......" "$f" "MODIFIED"
+	fi 
 done
+
+echo "......Checks Complete"
 
