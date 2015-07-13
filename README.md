@@ -1,9 +1,11 @@
-# photo_scripts
+# Welcome to the photo_scripts wiki!
+---
+All scripts are licensed under the GNU GPL v3.
 
-A selection of useful scripts for working with images.
+For more details see: https://github.com/st599/photo_scripts/wiki
 
+## Scripts
 
-### Astro Star Stacking
-This script takes a set of astro images and a set of black images (i.e. noise images).  It averages the noise, subtracts this from the individual star images, aligns the star images and creates an averaged star image.
-
-Place astro_star_stacking.sh in a directory, add 2 directories blackframes and starframes.  Place CR2 files in the relevant directories and run the script.
+* Camera Card Backup
+* Astro Star Stacking
+* Median Filter

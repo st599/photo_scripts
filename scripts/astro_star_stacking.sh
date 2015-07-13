@@ -41,7 +41,7 @@ convert *.tiff -alpha off -evaluate-sequence median -depth 16 blackframe1.tiff
 
 echo "......Move Black Frame"
 
-mv blackframe.tiff ../starframes
+mv blackframe.tiff blackframe1.tiff ../starframes
 
 echo "......Tidy Up"
 
