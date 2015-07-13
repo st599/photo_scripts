@@ -34,6 +34,8 @@ OUTPUT_DIR=~/camera_backup/`TZ='Europe/London' date +%y%m%d%H%M`/
 echo -n "......Output Directory: "
 echo $OUTPUT_DIR
 
+mkdir -p $OUTPUT_DIR
+
 
 #####################
 # COPY              #
