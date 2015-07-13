@@ -4,7 +4,7 @@
 #	file		:	camera_card_backup.sh
 #	date		:	13/07/2015
 #	version		:	0.1 - Rsync
-#			:	
+#			:	0.2 - MD5sum
 #	requires	:	rsync, md5sum
 #	copyright	:	(c) st599 MMXV
 #
@@ -13,7 +13,7 @@
 
 echo "CAMERA CARD BACKUP shell script"
 echo ""
-echo " (c) st599 ver 0.1"
+echo " (c) st599 ver 0.2"
 echo ""
 echo "usage camera_card_backup.sh <input_directory>"
 
