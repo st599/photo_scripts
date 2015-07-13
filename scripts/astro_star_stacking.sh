@@ -97,4 +97,5 @@ rm *.tiff
 
 cd ..
 
+echo "......PROCESS FINISHED"
 
