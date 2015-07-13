@@ -7,7 +7,7 @@
 #			:	0.2 - Subtract Black Frame from Star Frames
 #			:	0.3 - Align star images
 #			:	0.4 - Average star images
-#	requires	:	hugin, dcraw
+#	requires	:	hugin, dcraw, imagemagick
 #	copyright	:	(c) st599 MMXV
 #
 #######################################################################################
